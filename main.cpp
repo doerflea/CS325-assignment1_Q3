@@ -1,5 +1,6 @@
 #include<iostream>
 #include<fstream>
+#include<sstream>
 #include<vector>
 #include<string>
 
@@ -9,8 +10,6 @@
 
 int main(){
    std::ifstream file_input;
-   std::ofstream file_output_insert;
-   std::ofstream file_output_merge;
 
    std::string file_input_name;
    using std::ios;
@@ -27,16 +26,22 @@ int main(){
       file_input.open(file_input_name,std::ios::in);
    }
    std::cout << "File sucessfully opened." << std::endl;
-   std::vector<int>array;
-   while(!file_input.eof()){
-     int num;
-     std::cin >> num;
-     array.push_back(num);
+   if(file_input.good())
+   {
+      std::string str;
+      while(getline(file_input,str)){
+	 std::vector<int>array;
+	 std::istringstream ss(str);
+	 int num;
+	 while(ss >> num){
+	    array.push_back(num);
+	 }
+	 insertionSort(&array);
+	 output(&array);
+      }
+
+      file_input.close();
+
    }
-
-   file_input.close();
-
-   insertionSort(array);
-   output(array);
    return 0;
- }
+}

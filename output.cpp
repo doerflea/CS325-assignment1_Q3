@@ -3,10 +3,12 @@
 #include<fstream>
 #include<vector>
 
-void output(std::vector<int>&array){
+void output(std::vector<int>*array){
   std::fstream output_file;
-  output_file.open("insert.txt", std::ofstream::out);
-  for(int i = 0; i < array.size() - 1; i++){
-    output_file << array[i] << " ";
+  output_file.open("insert.txt", std::ios::out | std::ios::app);
+  for(int i = 0; i < array->size(); i++){
+    output_file << array->at(i) << " ";
   }
+  output_file << std::endl;
+  output_file.close();
 }
