@@ -6,7 +6,7 @@
 
 #include "insertionSort.hpp"
 #include "output.hpp"
-//#include "mergeSort.hpp"
+#include "mergeSort.hpp"
 
 int main(){
    std::ifstream file_input;
@@ -21,7 +21,7 @@ int main(){
 
    while(file_input.fail()){
       std::cout << "An error occured while opening the file" << std::endl;
-      std::cout << "Enter file name to open.";
+      std::cout << "Enter file name to open:";
       std::cin >> file_input_name;
       file_input.open(file_input_name,std::ios::in);
    }
@@ -36,8 +36,9 @@ int main(){
 	 while(ss >> num){
 	    array.push_back(num);
 	 }
-	 insertionSort(&array);
-	 output(&array);
+	 //insertionSort(&array);
+	 mergeSort(array,0,array.size()-1);
+	 output(array);
       }
 
       file_input.close();

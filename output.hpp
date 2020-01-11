@@ -4,6 +4,6 @@
 #include<iostream>
 #include<vector>
 
-void output(std::vector<int>*array);
+void output(std::vector<int>array);
 
 #endif

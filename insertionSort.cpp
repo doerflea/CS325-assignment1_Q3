@@ -1,8 +1,5 @@
 #include "insertionSort.hpp"
 
-#include<iostream>
-#include<vector>
-
 void insertionSort(std::vector<int> *array){
 
    int n = array->size();
