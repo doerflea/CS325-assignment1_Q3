@@ -1,4 +1,4 @@
-# CS325-assignment1
+# CS325-assignment1_Q3
 
 Each program is located under their respective folder (MergeSort and InsertSort). For each program:
 1) Run make. Begin program. Exectuables are named insertsort and mergesort.
